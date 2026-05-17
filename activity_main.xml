@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ScrollView lets the screen scroll if needed -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#EAF4FF">
+
+    <!-- Main vertical layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- App title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SketchCalculator"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#1E3A5F"
+            android:layout_marginTop="24dp" />
+
+        <!-- Short app description -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Draw digits and solve equations"
+            android:textSize="16sp"
+            android:textColor="#5C6B7A"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Row for the two drawing boxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- First digit section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Digit"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E3A5F"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- First drawing box -->
+                <com.nex3z.fingerpaintview.FingerPaintView
+                    android:id="@+id/boxOne"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/box_border" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="1dp" />
+
+            <!-- Second digit section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Digit"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E3A5F"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Second drawing box -->
+                <com.nex3z.fingerpaintview.FingerPaintView
+                    android:id="@+id/boxTwo"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/box_border" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Operation buttons row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="+"
+                android:textSize="20sp"
+                android:backgroundTint="#4A90E2"
+                android:textColor="#FFFFFF" />
+
+            <Space android:layout_width="8dp" android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/subtractButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="-"
+                android:textSize="20sp"
+                android:backgroundTint="#4A90E2"
+                android:textColor="#FFFFFF" />
+
+            <Space android:layout_width="8dp" android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/multiplyButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="×"
+                android:textSize="20sp"
+                android:backgroundTint="#4A90E2"
+                android:textColor="#FFFFFF" />
+
+            <Space android:layout_width="8dp" android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/divideButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="÷"
+                android:textSize="20sp"
+                android:backgroundTint="#4A90E2"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Calculate and Clear buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp">
+
+            <Button
+                android:id="@+id/calculateButton"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Calculate"
+                android:textSize="16sp"
+                android:backgroundTint="#2F80D1"
+                android:textColor="#FFFFFF" />
+
+            <Space android:layout_width="16dp" android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Clear"
+                android:textSize="16sp"
+                android:backgroundTint="#2F80D1"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Equation result card -->
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Equation"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1E3A5F"
+            android:gravity="center"
+            android:background="@drawable/card_white"
+            android:padding="18dp"
+            android:layout_marginTop="24dp" />
+
+        <!-- Confidence card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_white"
+            android:padding="18dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confidence"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1E3A5F"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="18dp" />
+
+            <!-- Confidence numbers row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- First digit confidence -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First Digit"
+                        android:textSize="15sp"
+                        android:textColor="#5C6B7A" />
+
+                    <TextView
+                        android:id="@+id/confidenceOneText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--%"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#2F80D1"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+
+                <!-- Divider line -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/divider_vertical" />
+
+                <!-- Second digit confidence -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Second Digit"
+                        android:textSize="15sp"
+                        android:textColor="#5C6B7A" />
+
+                    <TextView
+                        android:id="@+id/confidenceTwoText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--%"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#2F80D1"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
